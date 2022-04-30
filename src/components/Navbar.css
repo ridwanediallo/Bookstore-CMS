@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  padding-right: 50px;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.logo {
+  color: #fff;
+  font-size: 34px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.copyright {
+  padding-bottom: 10px;
+  color: #fff;
+}
