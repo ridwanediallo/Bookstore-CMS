@@ -25,6 +25,7 @@ const BookList = () => {
           {book.title}
           {' '}
           {book.author}
+          <button type="button">Remove</button>
         </li>
       ))}
     </ul>
