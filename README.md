@@ -48,4 +48,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is under the [MIT](./LICENSE) license.
+This project is under the [MIT](LICENSE) license.
