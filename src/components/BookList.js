@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import './BookList.css'
+import { selectBooks } from '../store/bookSlice';
+import './BookList.css';
 
 const BookList = () => {
-  const books = useSelector(state => state.book);
+  const books = useSelector(selectBooks);
 
   return (
     <ul className="list-group">
