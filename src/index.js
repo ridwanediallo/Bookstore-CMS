@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './store/bookStore';
+import store from './redux/bookStore';
 
 
 

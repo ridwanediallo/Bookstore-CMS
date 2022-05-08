@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectBooks } from '../store/bookSlice';
+import { selectBooks } from '../redux/books/bookSlice';
 import './BookList.css';
 
 const BookList = () => {
