@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 
 import { bookAdded } from '../store/bookSlice';
+import { Container, Form, Row } from 'react-bootstrap';
 
 const AddBook = () => {
   const [title, setTitle] = useState('');
@@ -26,7 +27,7 @@ const AddBook = () => {
   };
 
   return (
-    <section>
+    <>
       <h1>ADD NEW BOOK</h1>
       <form onSubmit={addBookHandler}>
         <input
@@ -41,11 +42,11 @@ const AddBook = () => {
           value={author}
           onChange={onAuthorChange}
         />
-        <button type="submit" onClick={onSaveBookClick}>
+        <button type="submit" onClick={onSaveBookClick} className="col-auto">
           Submit Book
         </button>
       </form>
-    </section>
+    </>
   );
 };
 export default AddBook;

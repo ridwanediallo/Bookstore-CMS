@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { selectBooks } from '../store/bookSlice';
 import './BookList.css';
@@ -7,7 +8,7 @@ const BookList = () => {
   const books = useSelector(selectBooks);
 
   return (
-    <ul className="list-group">
+    <ul className="container list-group">
       {books.map((book) => (
         <li className="list-item" key={book.id}>
           <p>{book.title}</p>
