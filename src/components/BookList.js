@@ -1,31 +1,22 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectBooks } from '../redux/books/bookSlice';
+import './BookList.css';
 
 const BookList = () => {
-  const books = [
-    {
-      id: 1,
-      title: 'go',
-      author: 'out',
-    },
-    {
-      id: 2,
-      title: 'go',
-      author: 'out',
-    },
-    {
-      id: 3,
-      title: 'go',
-      author: 'out',
-    },
-  ];
+  const books = useSelector(selectBooks);
+
   return (
-    <ul>
+    <ul className="list-group">
       {books.map((book) => (
-        <li key={book.id}>
-          {book.title}
-          {' '}
-          {book.author}
-          <button type="button">Remove</button>
+        <li className="list-item" key={book.id}>
+          <p>{book.title}</p>
+          <p>{book.author}</p>
+          <div className="btns">
+            <button type="button">Comment</button>|
+            <button type="button">Remove</button>|
+            <button type="button">Edit</button>
+          </div>
         </li>
       ))}
     </ul>

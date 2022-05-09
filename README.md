@@ -5,10 +5,12 @@
 ## Built With
 
 - React (CRA)
+- React Router Dom
+- Redux Toolkit
 
 ## sneak peek
 
-![Application screenshot]() // Coming soon
+![Application screenshot](./src/bookStore-cms.png)
 
 ## Getting Started
 
@@ -17,7 +19,7 @@ To get a local copy up and running follow these simple exampl
 
 #### Live demo
 
-[Math Magicians Website](https://ridwanediallo.github.io/Math-magicians/) _Coming Soon_
+[Math Magicians Website](https://ridwanediallo.github.io/Bookstore-CMS/) _Coming Soon_
 
 ### **Option 2**
 
