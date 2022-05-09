@@ -1,15 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
+import { legacy_createStore as createStore } from 'redux';
+import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import bookReducer from './redux/books/books';
+
+const store = createStore(bookReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Router>
-    <App />
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
 );
 
 // If you want to start measuring performance in your app, pass a function
