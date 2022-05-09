@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const categoriesSlice = createSlice({
   name: 'categories',
-  initialState: { showText: false },
+  initialState: {categories:[], showText: false },
   reducers: {
     toggleText(state) {
       state.showText = !state.showText;
