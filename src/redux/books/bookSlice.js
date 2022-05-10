@@ -8,7 +8,6 @@ export const bookSlice = createSlice({
       state.push(action.payload);
     },
     removeBook: (state, action) => {
-      // const {index} = action.payload;
       return state.filter((book) => book.id !== action.payload);
     },
   },

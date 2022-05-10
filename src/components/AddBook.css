@@ -1,8 +1,8 @@
 form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 }
 
 .title {
@@ -14,6 +14,7 @@ form {
   border: solid 1px gray;
   background-color: #fff;
 }
+
 .author {
   width: 1.5rem;
   height: 2.813rem;
@@ -25,10 +26,10 @@ form {
 }
 
 .form-section {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-title {
-    align-self: center;
+  align-self: center;
 }

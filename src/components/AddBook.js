@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import './AddBook.css'
+import './AddBook.css';
 
 import { bookAdded } from '../redux/books/bookSlice';
 
@@ -31,14 +31,12 @@ const AddBook = () => {
       <h1 className="form-title">ADD NEW BOOK</h1>
       <form onSubmit={addBookHandler}>
         <input
-          // className="title"
           type="text"
           placeholder="Enter your Title"
           value={title}
           onChange={onTitleChange}
         />
         <input
-          // className="author"
           type="text"
           placeholder="Enter your Author"
           value={author}
