@@ -19,7 +19,7 @@ To get a local copy up and running follow these simple exampl
 
 #### Live demo
 
-[Math Magicians Website](https://ridwanediallo.github.io/Bookstore-CMS/) _Coming Soon_
+[Math Magicians Website](https://rid-bookstore-cms.netlify.app/)
 
 ### **Option 2**
 
