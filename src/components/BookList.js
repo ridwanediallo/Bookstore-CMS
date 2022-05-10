@@ -7,8 +7,8 @@ const BookList = () => {
   const books = useSelector(selectBooks);
   const dispatch = useDispatch();
 
-  // const removeBookHandler = (index) => {
-  //   dispatch(removeBook(index));
+  // const removeBookHandler = (id) => {
+  //   dispatch(removeBook(id));
   // };
 
   return (
@@ -22,9 +22,7 @@ const BookList = () => {
               <button type="button">Comment</button>|
               <button
                 type="button"
-                onClick={() => {
-                  dispatch(removeBook({ id: book.id }));
-                }}
+                onClick={() => dispatch(removeBook(book.id))}
               >
                 Remove
               </button>
