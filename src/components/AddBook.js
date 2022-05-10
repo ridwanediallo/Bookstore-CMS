@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
+import './AddBook.css';
 
 import { bookAdded } from '../redux/books/bookSlice';
 
@@ -26,8 +27,8 @@ const AddBook = () => {
   };
 
   return (
-    <section>
-      <h1>ADD NEW BOOK</h1>
+    <section className="form-section">
+      <h1 className="form-title">ADD NEW BOOK</h1>
       <form onSubmit={addBookHandler}>
         <input
           type="text"
