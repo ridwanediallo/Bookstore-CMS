@@ -1,10 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectBooks } from '../redux/books/bookSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeBook, selectBooks } from '../redux/books/bookSlice';
 import './BookList.css';
 
 const BookList = () => {
   const books = useSelector(selectBooks);
+  const dispatch = useDispatch();
+
+  // const removeBookHandler = (index) => {
+  //   dispatch(removeBook(index));
+  // };
 
   return (
     <ul className="list-group">
@@ -14,8 +19,15 @@ const BookList = () => {
           <p>{book.author}</p>
           <div className="btns">
             <button type="button">Comment</button>|
-            <button type="button">Remove</button>|
-            <button type="button">Edit</button>
+            <button
+              type="button"
+              onClick={() => {
+                dispatch(removeBook({ id: book.id }));
+              }}
+            >
+              Remove
+            </button>
+            |<button type="button">Edit</button>
           </div>
         </li>
       ))}

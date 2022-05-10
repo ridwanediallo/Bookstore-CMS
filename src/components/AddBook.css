@@ -1,0 +1,34 @@
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.title {
+  width: 8.5rem;
+  height: 2.813rem;
+  margin: 1.188rem 2.125rem 0 0;
+  padding: 0.813rem 35.688rem 0.813rem 1.063rem;
+  border-radius: 4px;
+  border: solid 1px gray;
+  background-color: #fff;
+}
+.author {
+  width: 1.5rem;
+  height: 2.813rem;
+  margin: 1.188rem 2.125rem 0 0;
+  padding: 0.813rem 35.688rem 0.813rem 1.063rem;
+  border-radius: 4px;
+  border: solid 1px gray;
+  background-color: #fff;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title {
+    align-self: center;
+}
