@@ -1,9 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 40px;
+  padding: 0;
 }
+
+/* .inputs {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-self: start;
+  gap: 40px;
+} */
 
 .title {
   width: 8.5rem;
@@ -25,11 +41,16 @@ form {
   background-color: #fff;
 }
 
+.submit-btn {
+  /* align-self: flex-end; */
+  /* margin-left: 92px; */
+}
+
 .form-section {
   display: flex;
   flex-direction: column;
 }
 
 .form-title {
-  align-self: center;
+  align-self: start;
 }

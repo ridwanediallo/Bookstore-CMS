@@ -12,10 +12,13 @@ const BookList = () => {
   // };
 
   return (
-    <div className="booklists">
+    <div className="container booklists">
       <ul className="list-group">
         {books.map((book) => (
-          <li className="list-item" key={book.id}>
+          <li
+            className="list-item shadow p-3 mb-5 bg-body rounded"
+            key={book.id}
+          >
             <p>{book.title}</p>
             <p>{book.author}</p>
             <div className="btns">
