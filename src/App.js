@@ -7,7 +7,8 @@ import './App.css';
 import Books from './components/Books';
 import Categories from './components/Categories';
 import NavBar from './components/NavBar';
-import { fetchBookData, selectBooks, sendBookData } from './redux/books/bookSlice';
+import { sendBookData, fetchBookData } from './redux/Api';
+import {selectBooks} from './redux/books/bookSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(sendBookData(books));
+    dispatch(sendBookData);
   }, [books, dispatch]);
 
   return (
