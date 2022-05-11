@@ -6,7 +6,9 @@ import './Navbar.css';
 const NavBar = () => (
   <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
     <div className="container navB">
-      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <Navbar.Brand href="#home" className="logo">
+        BookStore CMS
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
