@@ -1,3 +1,4 @@
+// import { replaceBook } from "./books/bookSlice";
 
 export const fetchBookData = (books) => {
   return async (dispatch) => {
@@ -16,7 +17,9 @@ export const fetchBookData = (books) => {
     };
 
     try {
-      await fetchData();
+      const bookData = await fetchData();
+      dispatch(replaceBook(bookData))
+
     } catch (error) {
       console.error(error);
     }
@@ -28,8 +31,8 @@ export const sendBookData = (books) => {
   return async (dispatch) => {
     const sendRequest = async () => {
       const response = await fetch(
-        // `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${id}/books`,
-        'https://react-http-project-35727-default-rtdb.firebaseio.com/books.json',
+        `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${id}/books`,
+        // 'https://react-http-project-35727-default-rtdb.firebaseio.com/books.json',
         {
           method: 'POST',
           body: JSON.stringify(books),

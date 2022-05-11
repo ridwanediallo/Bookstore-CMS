@@ -7,9 +7,7 @@ const BookList = () => {
   const books = useSelector(selectBooks);
   const dispatch = useDispatch();
 
-  // const removeBookHandler = (id) => {
-  //   dispatch(removeBook(id));
-  // };
+
 
   return (
     <div className="booklists">
