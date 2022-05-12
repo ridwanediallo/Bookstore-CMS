@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-export const getBook = createAsyncThunk('book/getBook', async ({ id }) => {
+const id = '1ixeASo4AU3X3cZnoiCd';
+
+export const getBook = createAsyncThunk('book/getBook', async () => {
   return fetch(
     `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${id}/books`
   ).then((res) => res.json());
@@ -21,5 +23,11 @@ const apiSlice = createSlice({
             state.loading = false;
             state.books = [action.payload]
         },
+        [getBook.rejected]: (state, action) => {
+            state.loading = false;
+            state.books = action.payload;
+        },
     }
 })
+
+export default apiSlice.reducer;

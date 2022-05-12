@@ -5,7 +5,7 @@ export const bookSlice = createSlice({
   initialState: [],
   reducers: {
     replaceBook(state, action) {
-      state = action.payload
+      state = action.payload;
     },
     bookAdded: (state, action) => {
       state.push(action.payload);
@@ -16,13 +16,14 @@ export const bookSlice = createSlice({
   },
 });
 
-
 export const fetchBookData = (books) => {
+  const api_Id = '1ixeASo4AU3X3cZnoiCd';
+
   return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch(
-        `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${id}/books`
-        // 'https://react-http-project-35727-default-rtdb.firebaseio.com/books.json'
+        // `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books`
+        'https://react-http-project-35727-default-rtdb.firebaseio.com/books.json'
       );
 
       if (!response.ok) {
@@ -44,14 +45,24 @@ export const fetchBookData = (books) => {
 };
 
 export const sendBookData = (books) => {
-  const id = '1ixeASo4AU3X3cZnoiCd';
   return async (dispatch) => {
-    const sendRequest = async () => {
+    const sendRequest = async (id, title, author, category) => {
+
+      // const booksData = {
+      //    id,
+      //    title,
+      //    author,
+      //    category,
+      // }
+
       const response = await fetch(
-        `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${id}/books`,
+        `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books`,
         // 'https://react-http-project-35727-default-rtdb.firebaseio.com/books.json',
         {
           method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
           body: JSON.stringify(books),
         }
       );
@@ -68,8 +79,6 @@ export const sendBookData = (books) => {
   };
 };
 
-
-
 export const selectBooks = (state) => state.books;
-export const { bookAdded, removeBook} = bookSlice.actions;
+export const { bookAdded, removeBook } = bookSlice.actions;
 export default bookSlice.reducer;
