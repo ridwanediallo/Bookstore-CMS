@@ -3,20 +3,22 @@ import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import './AddBook.css';
 
-import { bookAdded } from '../redux/books/bookSlice';
+import { addBooks } from '../redux/books/bookSlice';
 
 const AddBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
 
   const dispatch = useDispatch();
 
   const onTitleChange = (e) => setTitle(e.target.value);
   const onAuthorChange = (e) => setAuthor(e.target.value);
+  const onCategoryChange = (e) => setCategory(e.target.value);
 
   const onSaveBookClick = () => {
-    if (title && author) {
-      dispatch(bookAdded({ id: nanoid(), title, author }));
+    if (title && author && category) {
+      dispatch(addBooks({ id: nanoid(), title, author, category }));
     }
     setTitle('');
     setAuthor('');
@@ -42,6 +44,12 @@ const AddBook = () => {
           value={author}
           onChange={onAuthorChange}
         />
+        <select onChange={onCategoryChange} value={category}>
+          <option value="action">Action</option>
+          <option value="it">IT</option>
+          <option value="fiction">Fiction</option>
+          <option value="leadership">Leadership</option>
+        </select>
         <button type="submit" onClick={onSaveBookClick}>
           Submit Book
         </button>
