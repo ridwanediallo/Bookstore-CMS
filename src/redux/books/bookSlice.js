@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { nanoid } from 'nanoid';
 
 export const getBooksData = createAsyncThunk('books/getBooksData', async () => {
   const api_Id = '1ixeASo4AU3X3cZnoiCd';
@@ -17,54 +16,45 @@ export const addBooks = createAsyncThunk(
   'books / addBooks',
   async (payload) => {
     const api_Id = '1ixeASo4AU3X3cZnoiCd';
-    const response = await fetch(
+    const book = {};
+    book.item_id = payload.id;
+    book.title = payload.title;
+    book.author = payload.author;
+    book.category = payload.category;
+
+    await fetch(
       `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: payload.title, author: payload.author }),
+        body: JSON.stringify(book),
       }
     );
-     if (response.ok) {
-       const book = await response.json();
-       return { book };
-     }
+
+    return book;
   }
 );
+
 //${payload.id}
 export const deleteBook = createAsyncThunk(
   'books/deleteBook',
   async (payload) => {
-    const resp = await fetch(
-      `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books/${payload.id}`,
+    const api_Id = '1ixeASo4AU3X3cZnoiCd';
+    await fetch(
+      `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books/${payload}`,
       {
         method: 'DELETE',
       }
     );
+    console.log(payload);
 
-    if (resp.ok) {
-      return { id: payload.id };
-    }
+    return payload;
   }
 );
 
 export const bookSlice = createSlice({
   name: 'books',
-  initialState: [],
-  reducers: {
-    bookAdded: (state, action) => {
-      const book = {
-        id: nanoid(),
-        title: action.payload.title,
-        author: action.payload.author,
-        category: action.payload.category,
-      };
-      state.push(book);
-    },
-    removeBook: (state, action) => {
-      return state.filter((book) => book.id !== action.payload);
-    },
-  },
+  initialState: {},
   extraReducers: {
     [getBooksData.pending]: (state, action) => {
       // return action.payload.books;
@@ -75,7 +65,17 @@ export const bookSlice = createSlice({
       return action.payload.book;
     },
     [addBooks.fulfilled]: (state, action) => {
-      state.push(action.payload.book);
+      state[action.payload.item_id] = [
+        {
+          title: action.payload.title,
+          author: action.payload.author,
+          category: action.payload.category,
+        },
+      ];
+    },
+    [deleteBook.fulfilled]: (state, action) => {
+      console.log('success');
+      delete state[action.payload];
     },
   },
 });
