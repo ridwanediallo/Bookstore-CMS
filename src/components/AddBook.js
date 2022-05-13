@@ -8,6 +8,7 @@ import { addBooks } from '../redux/books/bookSlice';
 const AddBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
 
   const dispatch = useDispatch();
 
@@ -42,6 +43,12 @@ const AddBook = () => {
           value={author}
           onChange={onAuthorChange}
         />
+        <select>
+          <option value="action">Action</option>
+          <option value="it">IT</option>
+          <option value="fiction">Fiction</option>
+          <option value="leadership">Leadership</option>
+        </select>
         <button type="submit" onClick={onSaveBookClick}>
           Submit Book
         </button>
