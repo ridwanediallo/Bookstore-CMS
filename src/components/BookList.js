@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getBooksData, removeBook } from '../redux/books/bookSlice';
+import { getBooksData, deleteBook } from '../redux/books/bookSlice';
 import './BookList.css';
 
 const BookList = () => {
@@ -28,10 +28,7 @@ const BookList = () => {
               <p>{category}</p>
               <div className="btns">
                 <button type="button">Comment</button>|
-                <button
-                  type="button"
-                  onClick={() => dispatch(removeBook(book.id))}
-                >
+                <button type="button" onClick={() => dispatch(deleteBook(key))}>
                   Remove
                 </button>
                 |<button type="button">Edit</button>

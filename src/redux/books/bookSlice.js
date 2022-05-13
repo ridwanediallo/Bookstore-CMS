@@ -21,7 +21,7 @@ export const addBooks = createAsyncThunk(
     book.title = payload.title;
     book.author = payload.author;
     book.category = payload.category;
-    console.log(JSON.stringify(book));
+
     await fetch(
       `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books`,
       {
@@ -39,16 +39,16 @@ export const addBooks = createAsyncThunk(
 export const deleteBook = createAsyncThunk(
   'books/deleteBook',
   async (payload) => {
-    const resp = await fetch(
-      `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books/${payload.id}`,
+    const api_Id = '1ixeASo4AU3X3cZnoiCd';
+    await fetch(
+      `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books/${payload}`,
       {
         method: 'DELETE',
       },
     );
+    console.log(payload);
 
-    if (resp.ok) {
-      return { id: payload.id };
-    }
+    return payload;
   },
 );
 
@@ -65,7 +65,6 @@ export const bookSlice = createSlice({
       return action.payload.book;
     },
     [addBooks.fulfilled]: (state, action) => {
-      console.log('I am here', action.payload);
       state[action.payload.item_id] = [
         {
           title: action.payload.title,
@@ -73,6 +72,10 @@ export const bookSlice = createSlice({
           category: action.payload.category,
         },
       ];
+    },
+    [deleteBook.fulfilled]: (state, action) => {
+      console.log('success');
+      delete state[action.payload];
     },
   },
 });
