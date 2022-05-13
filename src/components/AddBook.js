@@ -17,7 +17,7 @@ const AddBook = () => {
   const onCategoryChange = (e) => setCategory(e.target.value);
 
   const onSaveBookClick = () => {
-    if (title && author) {
+    if (title && author && category) {
       dispatch(addBooks({ id: nanoid(), title, author, category }));
     }
     setTitle('');
