@@ -1,7 +1,7 @@
 import React from 'react';
 import './BookItem.css'
 
-const BookItem = ({id, title,author}) => {
+const BookItem = () => {
   return (
     <li className="list-item" key={id}>
       <p>{title}</p>
