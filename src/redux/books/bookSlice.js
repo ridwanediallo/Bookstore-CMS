@@ -1,84 +1,42 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+export const getBooksData = createAsyncThunk('books/getBooksData', async () => {
+  const api_Id = '1ixeASo4AU3X3cZnoiCd';
+  const response = await fetch(
+    `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books`
+  );
+
+  if (response.ok) {
+    const books = await response.json();
+    return { books };
+  }
+});
 
 export const bookSlice = createSlice({
   name: 'books',
   initialState: [],
   reducers: {
-    replaceBook(state, action) {
-      state = action.payload;
-    },
     bookAdded: (state, action) => {
-      state.push(action.payload);
+      const book = {
+        item_id: itemId,
+        title: action.payload.title,
+        author: action.payload.author,
+        category: action.payload.category
+      };
+      state.push(book);
     },
     removeBook: (state, action) => {
-      return state.filter((book) => book.id !== action.payload);
+      return state.filter((book) => book.id !== action.payload.id);
+    },
+  },
+  extraReducers: {
+    [getBooksData.fulfilled]: (state, action) => {
+      return action.payload.books;
     },
   },
 });
 
-export const fetchBookData = (books) => {
-  const api_Id = '1ixeASo4AU3X3cZnoiCd';
 
-  return async (dispatch) => {
-    const fetchData = async () => {
-      const response = await fetch(
-        // `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books`
-        'https://react-http-project-35727-default-rtdb.firebaseio.com/books.json'
-      );
-
-      if (!response.ok) {
-        throw new Error('Could not fetch Book data');
-      }
-
-      const data = await response.json();
-
-      return data;
-    };
-
-    try {
-      const bookData = await fetchData();
-      // replaceBook(bookData);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-};
-
-export const sendBookData = (books) => {
-  return async (dispatch) => {
-    const sendRequest = async (id, title, author, category) => {
-
-      // const booksData = {
-      //    id,
-      //    title,
-      //    author,
-      //    category,
-      // }
-
-      const response = await fetch(
-        `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books`,
-        // 'https://react-http-project-35727-default-rtdb.firebaseio.com/books.json',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(books),
-        }
-      );
-      if (!response.ok) {
-        throw new Error('Sending Book data failed');
-      }
-    };
-
-    try {
-      await sendRequest();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-};
-
-export const selectBooks = (state) => state.books;
+// export const selectBooks = (state) => state.books;
 export const { bookAdded, removeBook } = bookSlice.actions;
 export default bookSlice.reducer;

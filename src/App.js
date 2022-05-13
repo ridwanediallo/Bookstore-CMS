@@ -7,24 +7,19 @@ import './App.css';
 import Books from './components/Books';
 import Categories from './components/Categories';
 import NavBar from './components/NavBar';
-// import { sendBookData, fetchBookData } from './redux/Api';
-import {
-  selectBooks,
-  sendBookData,
-  fetchBookData,
-} from './redux/books/bookSlice';
+
 
 function App() {
-  const dispatch = useDispatch();
-  const books = useSelector(selectBooks);
+  // const dispatch = useDispatch();
+  // const books = useSelector(selectBooks);
 
-  useEffect(() => {
-    dispatch(fetchBookData());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchBookData());
+  // }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(sendBookData);
-  }, [books, dispatch]);
+  // useEffect(() => {
+  //   dispatch(sendBookData);
+  // }, [books, dispatch]);
 
   return (
     <>

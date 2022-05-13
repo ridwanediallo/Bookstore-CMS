@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook, selectBooks } from '../redux/books/bookSlice';
+import {
+  getBooksData,
+  removeBook,
+} from '../redux/books/bookSlice';
 import './BookList.css';
 
 const BookList = () => {
-  const books = useSelector(selectBooks);
   const dispatch = useDispatch();
-// const {books} = useSelector(state =>({...state.api}))
+  const books = useSelector((state) => state.books);
+  console.log(books); // the=is shows the data in the console 
 
+  useEffect(() => {
+    dispatch(getBooksData());
+  }, [dispatch, books]);
 
   return (
     <div className="booklists">
