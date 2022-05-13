@@ -14,6 +14,7 @@ const AddBook = () => {
 
   const onTitleChange = (e) => setTitle(e.target.value);
   const onAuthorChange = (e) => setAuthor(e.target.value);
+  const onCategoryChange = (e) => setCategory(e.target.value);
 
   const onSaveBookClick = () => {
     if (title && author) {
@@ -43,7 +44,7 @@ const AddBook = () => {
           value={author}
           onChange={onAuthorChange}
         />
-        <select>
+        <select onChange={onCategoryChange}>
           <option value="action">Action</option>
           <option value="it">IT</option>
           <option value="fiction">Fiction</option>
