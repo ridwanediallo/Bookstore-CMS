@@ -18,7 +18,7 @@ const AddBook = () => {
 
   const onSaveBookClick = () => {
     if (title && author) {
-      dispatch(addBooks({ id: nanoid(), title, author }));
+      dispatch(addBooks({ id: nanoid(), title, author, category }));
     }
     setTitle('');
     setAuthor('');
@@ -44,7 +44,7 @@ const AddBook = () => {
           value={author}
           onChange={onAuthorChange}
         />
-        <select onChange={onCategoryChange}>
+        <select onChange={onCategoryChange} value={category}>
           <option value="action">Action</option>
           <option value="it">IT</option>
           <option value="fiction">Fiction</option>
