@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { nanoid } from 'nanoid';
 
 export const getBooksData = createAsyncThunk('books/getBooksData', async () => {
   const api_Id = '1ixeASo4AU3X3cZnoiCd';
@@ -31,6 +30,8 @@ export const addBooks = createAsyncThunk(
         body: JSON.stringify(book),
       },
     );
+
+    return book;
   },
 );
 
@@ -53,21 +54,7 @@ export const deleteBook = createAsyncThunk(
 
 export const bookSlice = createSlice({
   name: 'books',
-  initialState: [],
-  reducers: {
-    bookAdded: (state, action) => {
-      const book = {
-        id: nanoid(),
-        title: action.payload.title,
-        author: action.payload.author,
-        category: action.payload.category,
-      };
-      state.push(book);
-    },
-    removeBook: (state, action) => {
-      return state.filter((book) => book.id !== action.payload);
-    },
-  },
+  initialState: {},
   extraReducers: {
     [getBooksData.pending]: (state, action) => {
       // return action.payload.books;
@@ -78,7 +65,14 @@ export const bookSlice = createSlice({
       return action.payload.book;
     },
     [addBooks.fulfilled]: (state, action) => {
-      state.push(action.payload);
+      console.log('I am here', action.payload);
+      state[action.payload.item_id] = [
+        {
+          title: action.payload.title,
+          author: action.payload.author,
+          category: action.payload.category,
+        },
+      ];
     },
   },
 });
