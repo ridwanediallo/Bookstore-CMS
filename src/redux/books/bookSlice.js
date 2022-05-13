@@ -35,7 +35,6 @@ export const addBooks = createAsyncThunk(
   }
 );
 
-//${payload.id}
 export const deleteBook = createAsyncThunk(
   'books/deleteBook',
   async (payload) => {
@@ -57,7 +56,6 @@ export const bookSlice = createSlice({
   initialState: {},
   extraReducers: {
     [getBooksData.pending]: (state, action) => {
-      // return action.payload.books;
       console.log('fetching');
     },
     [getBooksData.fulfilled]: (state, action) => {
@@ -80,6 +78,5 @@ export const bookSlice = createSlice({
   },
 });
 
-// export const selectBooks = (state) => state.books;
 export const { bookAdded, removeBook } = bookSlice.actions;
 export default bookSlice.reducer;
