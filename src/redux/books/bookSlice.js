@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
 
 export const getBooksData = createAsyncThunk('books/getBooksData', async () => {
   const api_Id = '1ixeASo4AU3X3cZnoiCd';
@@ -7,10 +8,45 @@ export const getBooksData = createAsyncThunk('books/getBooksData', async () => {
   );
 
   if (response.ok) {
-    const books = await response.json();
-    return { books };
+    const book = await response.json();
+    return { book };
   }
 });
+
+export const addBooks = createAsyncThunk(
+  'books / addBooks',
+  async (payload) => {
+    const api_Id = '1ixeASo4AU3X3cZnoiCd';
+    const response = await fetch(
+      `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: payload.title, author: payload.author }),
+      }
+    );
+     if (response.ok) {
+       const book = await response.json();
+       return { book };
+     }
+  }
+);
+//${payload.id}
+export const deleteBook = createAsyncThunk(
+  'books/deleteBook',
+  async (payload) => {
+    const resp = await fetch(
+      `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books/${payload.id}`,
+      {
+        method: 'DELETE',
+      }
+    );
+
+    if (resp.ok) {
+      return { id: payload.id };
+    }
+  }
+);
 
 export const bookSlice = createSlice({
   name: 'books',
@@ -18,24 +54,31 @@ export const bookSlice = createSlice({
   reducers: {
     bookAdded: (state, action) => {
       const book = {
-        item_id: itemId,
+        id: nanoid(),
         title: action.payload.title,
         author: action.payload.author,
-        category: action.payload.category
+        category: action.payload.category,
       };
       state.push(book);
     },
     removeBook: (state, action) => {
-      return state.filter((book) => book.id !== action.payload.id);
+      return state.filter((book) => book.id !== action.payload);
     },
   },
   extraReducers: {
+    [getBooksData.pending]: (state, action) => {
+      // return action.payload.books;
+      console.log('fetching');
+    },
     [getBooksData.fulfilled]: (state, action) => {
-      return action.payload.books;
+      console.log('success');
+      return action.payload.book;
+    },
+    [addBooks.fulfilled]: (state, action) => {
+      state.push(action.payload.book);
     },
   },
 });
-
 
 // export const selectBooks = (state) => state.books;
 export const { bookAdded, removeBook } = bookSlice.actions;

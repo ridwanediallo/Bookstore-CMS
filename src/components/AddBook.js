@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import './AddBook.css';
 
-import { bookAdded } from '../redux/books/bookSlice';
+import { addBooks } from '../redux/books/bookSlice';
 
 const AddBook = () => {
   const [title, setTitle] = useState('');
@@ -16,7 +16,7 @@ const AddBook = () => {
 
   const onSaveBookClick = () => {
     if (title && author) {
-      dispatch(bookAdded({ id: nanoid(), title, author }));
+      dispatch(addBooks({ id: nanoid(), title, author }));
     }
     setTitle('');
     setAuthor('');

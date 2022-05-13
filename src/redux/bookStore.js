@@ -7,7 +7,7 @@ import booksSlice from './books/booksSlice';
 export default configureStore({
   reducer: {
     books: bookReducer,
-    // categories: categoriesReducer,
+    categories: categoriesReducer,
     // api: apiReducer,
     // booksState: booksSlice,
   },

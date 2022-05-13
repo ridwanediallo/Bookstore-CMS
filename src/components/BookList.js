@@ -9,16 +9,18 @@ import './BookList.css';
 const BookList = () => {
   const dispatch = useDispatch();
   const books = useSelector((state) => state.books);
-  console.log(books); // the=is shows the data in the console 
+  console.log(books); // the=is shows the data in the console
+  const booksData = Object.keys(books);
+
 
   useEffect(() => {
     dispatch(getBooksData());
-  }, [dispatch, books]);
+  }, [dispatch]);
 
   return (
     <div className="booklists">
       <ul className="list-group">
-        {books.map((book) => (
+        {booksData.map((book) => (
           <li className="list-item" key={book.id}>
             <p>{book.title}</p>
             <p>{book.author}</p>
