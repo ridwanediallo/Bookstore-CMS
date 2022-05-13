@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 export const getBooksData = createAsyncThunk('books/getBooksData', async () => {
   const api_Id = '1ixeASo4AU3X3cZnoiCd';
   const response = await fetch(
-    `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books`
+    `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books`,
   );
 
   if (response.ok) {
@@ -17,21 +17,22 @@ export const addBooks = createAsyncThunk(
   'books / addBooks',
   async (payload) => {
     const api_Id = '1ixeASo4AU3X3cZnoiCd';
-    const response = await fetch(
+    const book = {};
+    book.item_id = payload.id;
+    book.title = payload.title;
+    book.author = payload.author;
+    book.category = payload.category;
+    console.log(JSON.stringify(book));
+    await fetch(
       `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: payload.title, author: payload.author }),
-      }
+        body: JSON.stringify(book),
+      },
     );
-     if (response.ok) {
-       const book = await response.json();
-       return { book };
-     }
-  }
+  },
 );
-
 
 //${payload.id}
 export const deleteBook = createAsyncThunk(
@@ -41,13 +42,13 @@ export const deleteBook = createAsyncThunk(
       `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${api_Id}/books/${payload.id}`,
       {
         method: 'DELETE',
-      }
+      },
     );
 
     if (resp.ok) {
       return { id: payload.id };
     }
-  }
+  },
 );
 
 export const bookSlice = createSlice({
@@ -77,7 +78,7 @@ export const bookSlice = createSlice({
       return action.payload.book;
     },
     [addBooks.fulfilled]: (state, action) => {
-      state.push(action.payload.book);
+      state.push(action.payload);
     },
   },
 });
