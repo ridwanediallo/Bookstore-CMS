@@ -1,21 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap');
+
 .header {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
-  /* max-width: 80%; */
-  /* margin: 0 auto; */
-  background-color: blueviolet;
+}
+
+.navig {
+  background-color:#fff;
+  border-bottom: 1px solid #ccc;
 }
 
 .navB {
   padding: 10px 0;
-  /* margin: 0 100px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .left-side {
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
 }
 
 .nav-links {
@@ -31,8 +35,8 @@
 }
 
 .logo {
-  /* width: 15rem; */
-  /* height: 2.313rem; */
+  width: 15rem;
+  height: 2.313rem;
   margin: 0.375rem 2.938rem 0.125rem 0;
   font-family: Montserrat, sans-serif;
   font-size: 1.875rem;
@@ -41,7 +45,7 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--azure);
+  color: #0290ff;
 }
 
 .footer {
