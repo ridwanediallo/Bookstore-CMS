@@ -13,7 +13,7 @@ const BookList = () => {
   }, [dispatch]);
 
   return (
-    <div className="booklists">
+    <div className="container booklists">
       <ul className="list-group">
         {booksKey.map((key) => {
           const book = books[key];
