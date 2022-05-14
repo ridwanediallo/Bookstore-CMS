@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
@@ -10,16 +9,6 @@ import NavBar from './components/NavBar';
 
 
 function App() {
-  // const dispatch = useDispatch();
-  // const books = useSelector(selectBooks);
-
-  // useEffect(() => {
-  //   dispatch(fetchBookData());
-  // }, [dispatch]);
-
-  // useEffect(() => {
-  //   dispatch(sendBookData);
-  // }, [books, dispatch]);
 
   return (
     <>
