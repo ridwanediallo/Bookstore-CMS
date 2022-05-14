@@ -32,37 +32,29 @@ const AddBook = () => {
     <section className="container form-section">
       <h1 className="form-title">ADD NEW BOOK</h1>
       <form onSubmit={addBookHandler} className="">
-          <input
-            className=""
-            type="text"
-            placeholder="Enter your Title"
-            value={title}
-            onChange={onTitleChange}
-          />
-          <input
-            className=""
-            type="text"
-            placeholder="Enter your Author"
-            value={author}
-            onChange={onAuthorChange}
-          />
-          <select
-            onChange={onCategoryChange}
-            value={category}
-            className=""
-          >
-            <option value="action">Action</option>
-            <option value="it">IT</option>
-            <option value="fiction">Fiction</option>
-            <option value="leadership">Leadership</option>
-          </select>
-          <button
-            type="submit"
-            onClick={onSaveBookClick}
-            className=""
-          >
-            Submit Book
-          </button>
+        <input
+          className="input"
+          type="text"
+          placeholder="Enter your Title"
+          value={title}
+          onChange={onTitleChange}
+        />
+        <input
+          className="input"
+          type="text"
+          placeholder="Enter your Author"
+          value={author}
+          onChange={onAuthorChange}
+        />
+        <select onChange={onCategoryChange} value={category} className="input input-select">
+          <option value="action">Action</option>
+          <option value="it">IT</option>
+          <option value="fiction">Fiction</option>
+          <option value="leadership">Leadership</option>
+        </select>
+        <button type="submit" onClick={onSaveBookClick} className="submit-btn">
+          Submit Book
+        </button>
       </form>
     </section>
   );
