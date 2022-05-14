@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <main className="parent">
+      <main className="shadow p-3 mb-5 bg-body rounded py-5 parent">
         <Routes>
           <Route exact path="/" element={<Books />} />
           <Route path="/categories" element={<Categories />} />
