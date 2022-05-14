@@ -13,7 +13,7 @@ const BookList = () => {
   }, [dispatch]);
 
   return (
-    <div className="booklists">
+    <div className="container booklists">
       <ul className="list-group">
         {booksKey.map((key) => {
           const book = books[key];
@@ -22,15 +22,48 @@ const BookList = () => {
 
           return (
             <li className="list-item" key={key}>
-              <p>{title}</p>
-              <p>{author}</p>
-              <p>{category}</p>
-              <div className="btns">
-                <button type="button">Comment</button>|
-                <button type="button" onClick={() => dispatch(deleteBook(key))}>
-                  Remove
-                </button>
-                |<button type="button">Edit</button>
+              <div className="left">
+                <p className="book-category">{category}</p>
+                <h3 className="book-title">{title}</h3>
+                <p className="book-author">{author}</p>
+                <div className="btns">
+                  <button className="book-btn" type="button">
+                    Comment
+                  </button>
+                  |
+                  <button
+                    className="book-btn"
+                    type="button"
+                    onClick={() => dispatch(deleteBook(key))}
+                  >
+                    Remove
+                  </button>
+                  |
+                  <button className="book-btn" type="button">
+                    Edit
+                  </button>
+                </div>
+              </div>
+              <div className="progress-container">
+                <div className="circular-progress-container">
+                  <div className="circular-progress"></div>
+                </div>
+                <div className="progress-stat">
+                  <p className="percent-complete">0%</p>
+                  <p className="completed">Completed</p>
+                </div>
+                <div className="progress-divider"></div>
+                <div className="current-chapter-container">
+                  <div>
+                    <p className="current-chapter-label">CURRENT CHAPTER</p>
+                    <p className="current-chapter">Introduction</p>
+                  </div>
+                  <div>
+                    <button className="progress-btn" type="button">
+                      UPDATE PROGRESS
+                    </button>
+                  </div>
+                </div>
               </div>
             </li>
           );

@@ -29,28 +29,30 @@ const AddBook = () => {
   };
 
   return (
-    <section className="form-section">
+    <section className="container form-section">
       <h1 className="form-title">ADD NEW BOOK</h1>
-      <form onSubmit={addBookHandler}>
+      <form onSubmit={addBookHandler} className="">
         <input
+          className="input"
           type="text"
           placeholder="Enter your Title"
           value={title}
           onChange={onTitleChange}
         />
         <input
+          className="input"
           type="text"
           placeholder="Enter your Author"
           value={author}
           onChange={onAuthorChange}
         />
-        <select onChange={onCategoryChange} value={category}>
+        <select onChange={onCategoryChange} value={category} className="input input-select">
           <option value="action">Action</option>
           <option value="it">IT</option>
           <option value="fiction">Fiction</option>
           <option value="leadership">Leadership</option>
         </select>
-        <button type="submit" onClick={onSaveBookClick}>
+        <button type="submit" onClick={onSaveBookClick} className="submit-btn">
           Submit Book
         </button>
       </form>

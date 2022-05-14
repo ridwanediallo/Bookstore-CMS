@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
@@ -10,21 +9,11 @@ import NavBar from './components/NavBar';
 
 
 function App() {
-  // const dispatch = useDispatch();
-  // const books = useSelector(selectBooks);
-
-  // useEffect(() => {
-  //   dispatch(fetchBookData());
-  // }, [dispatch]);
-
-  // useEffect(() => {
-  //   dispatch(sendBookData);
-  // }, [books, dispatch]);
 
   return (
     <>
       <NavBar />
-      <main className="parent">
+      <main className="shadow p-3 mb-5 bg-body rounded py-5 parent">
         <Routes>
           <Route exact path="/" element={<Books />} />
           <Route path="/categories" element={<Categories />} />

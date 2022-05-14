@@ -1,20 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap');
+
+body {
+  padding: 4%;
+  background-color: #f5f6fa;
+}
+
 .list-group {
   list-style: none;
   margin: 0;
   padding: 0;
-
-  /* display: flex; */
-
-  /* flex-direction: column; */
-
-  /* justify-content: center; */
-
-  /* align-items: center; */
 }
 
 .booklists {
   display: flex;
   flex-direction: column;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2.313rem 00;
+  padding: 2rem 5.188rem 1.625rem 1.688rem;
+  border-radius: 4px;
+  border: solid 1px grey;
+  background-color: #fff;
+  align-self: stretch;
+}
+
+.btns {
+  display: flex;
+  gap: 20px;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.circular-progress-container {
+  width: 5.625rem;
+  height: 5.625rem;
+  padding: 0.63rem 0.625rem 0.75rem 0.75rem;
+  display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.circular-progress {
+  position: absolute;
+  border-radius: 50%;
+  width: 4.25rem;
+  height: 4.25rem;
+  border: 5px solid #307bbe;
+  border-left-color: #e8e8e8;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.progress-divider {
+  width: 0.125rem;
+  height: 4.375rem;
+  margin: 0 3.688rem 0 4.938rem;
+  background-color: #e8e8e8;
+}
+
+.progress-btn {
+  cursor: pointer;
+  border: none;
+  background-color: #0290ff;
+  border-radius: 3px;
+  padding: 8px 24px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.hr {
+  margin: 5px;
+}
+
+.book-btn {
+  font-family: 'Roboto Slab', serif;
+  background-color: transparent;
+  border: none;
+  color: #4386bf;
+  font-size: 18px;
+  font-weight: 300;
+  align-items: center;
+  cursor: pointer;
 }
