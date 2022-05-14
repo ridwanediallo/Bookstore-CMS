@@ -10,7 +10,7 @@
 
 ## sneak peek
 
-![Application screenshot](./src/bookStore-cms.png)
+![Application screenshot](./src/screencapture.png)
 
 ## Getting Started
 
