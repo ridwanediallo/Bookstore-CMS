@@ -22,9 +22,9 @@ const BookList = () => {
 
           return (
             <li className="list-item" key={key}>
-              <p>{title}</p>
-              <p>{author}</p>
               <p>{category}</p>
+              <h3>{title}</h3>
+              <p>{author}</p>
               <div className="btns">
                 <button type="button">Comment</button>|
                 <button type="button" onClick={() => dispatch(deleteBook(key))}>
