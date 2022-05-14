@@ -16,6 +16,7 @@ const Books = () => {
   return (
     <>
       <BookList books={booksList} />
+      <hr className="container" />
       <AddBook addBook={addBookHandler} />
     </>
   );

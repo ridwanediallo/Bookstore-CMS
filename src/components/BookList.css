@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap');
+
 .list-group {
   list-style: none;
   margin: 0;
@@ -26,7 +28,6 @@
   gap: 20px;
 }
 
-
 /*  */
 .progress-container {
   display: flex;
@@ -45,24 +46,39 @@
 }
 
 .circular-progress {
-    position: absolute;
-    border-radius: 50%;
-    width: 4.25rem;
-    height: 4.25rem;
-    border: 5px solid #307bbe;
-    border-left-color: #e8e8e8;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+  position: absolute;
+  border-radius: 50%;
+  width: 4.25rem;
+  height: 4.25rem;
+  border: 5px solid #307bbe;
+  border-left-color: #e8e8e8;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .progress-btn {
-      cursor: pointer;
-    border: none;
-    background-color: #0290ff;
-    border-radius: 3px;
-    padding: 8px 24px;
-    font-family: "Roboto Slab",serif;
-    font-weight: 300;
-    letter-spacing: .5px;
-    color: #fff;
+  cursor: pointer;
+  border: none;
+  background-color: #0290ff;
+  border-radius: 3px;
+  padding: 8px 24px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.hr {
+  margin: 5px;
+}
+
+.book-btn {
+  font-family: 'Roboto Slab', serif;
+  background-color: transparent;
+  border: none;
+  color: #4386bf;
+  font-size: 18px;
+  font-weight: 300;
+  align-items: center;
+  cursor: pointer;
 }

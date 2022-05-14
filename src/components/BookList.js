@@ -27,14 +27,21 @@ const BookList = () => {
                 <h3 className="book-title">{title}</h3>
                 <p className="book-author">{author}</p>
                 <div className="btns">
-                  <button type="button">Comment</button>|
+                  <button className="book-btn" type="button">
+                    Comment
+                  </button>
+                  |
                   <button
+                    className="book-btn"
                     type="button"
                     onClick={() => dispatch(deleteBook(key))}
                   >
                     Remove
                   </button>
-                  |<button type="button">Edit</button>
+                  |
+                  <button className="book-btn" type="button">
+                    Edit
+                  </button>
                 </div>
               </div>
               {/* <div className="right">
