@@ -44,22 +44,6 @@ const BookList = () => {
                   </button>
                 </div>
               </div>
-              {/* <div className="right">
-                <div className="progress-container">
-                  <div className="progress">
-                    <div className="progressBar"></div>
-                  </div>
-                  <div className="percentage">
-                    <p>0 %</p>
-                    <p>Complete</p>
-                  </div>
-                </div>
-                <div className="chapters">
-                  <p>CURRRENT CHAPTER</p>
-                  <p>Chapter 17</p>
-                  <button>UPDATE PROGRESS</button>
-                </div>
-              </div> */}
               <div className="progress-container">
                 <div className="circular-progress-container">
                   <div className="circular-progress"></div>
