@@ -33,7 +33,6 @@ body {
   gap: 20px;
 }
 
-/*  */
 .progress-container {
   display: flex;
   align-items: center;
@@ -44,7 +43,7 @@ body {
 .circular-progress-container {
   width: 5.625rem;
   height: 5.625rem;
-  padding: 0.63rem 0.625rem 0.75rem 0.75rem rem;
+  padding: 0.63rem 0.625rem 0.75rem 0.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
