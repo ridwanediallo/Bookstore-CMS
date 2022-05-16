@@ -20,7 +20,7 @@ const NavBar = () => (
             </Link>
           </Nav.Link>
           <Nav.Link href="#categories">
-            <Link to="/" className="text-secondary link">
+            <Link to="/categories" className="text-secondary link">
               Categories
             </Link>
           </Nav.Link>
