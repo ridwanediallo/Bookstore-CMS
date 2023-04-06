@@ -31,7 +31,7 @@ const AddBook = () => {
   return (
     <section className="container form-section">
       <h1 className="form-title">ADD NEW BOOK</h1>
-      <form onSubmit={addBookHandler} className="">
+      <form onSubmit={addBookHandler} className="d-flex flex-wrap">
         <input
           className="input"
           type="text"
@@ -46,12 +46,30 @@ const AddBook = () => {
           value={author}
           onChange={onAuthorChange}
         />
-        <select onChange={onCategoryChange} value={category} className="input input-select">
+        <select
+          onChange={onCategoryChange}
+          value={category}
+          aria-label=".form-select-lg example"
+          className="form-select form-select-lg w-auto mb-3"
+        >
           <option value="action">Action</option>
           <option value="it">IT</option>
           <option value="fiction">Fiction</option>
           <option value="leadership">Leadership</option>
         </select>
+        {/* <select
+          className="form-select form-select-lg w-auto mb-3"
+          aria-label=".form-select-lg example"
+          value={category}
+          onChange={onCategoryChange}
+        >
+          <option selected value="action">
+            Action
+          </option>
+          <option value="it">It</option>
+          <option value="fiction">Fiction</option>
+          <option value="leadership">Leadership</option>
+        </select> */}
         <button type="submit" onClick={onSaveBookClick} className="submit-btn">
           Submit Book
         </button>
