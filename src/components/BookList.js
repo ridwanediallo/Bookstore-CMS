@@ -14,19 +14,24 @@ const BookList = () => {
 
   return (
     <div className="container booklists">
-      <ul className="list-group">
+      <div>
         {booksKey.map((key) => {
           const book = books[key];
 
           const { category, author, title } = book[0];
 
           return (
-            <li className="list-item" key={key}>
+            <div
+              className="d-flex flex-wrap justify-content-lg-between"
+              key={key}
+            >
               <div className="left">
-                <p className="book-category">{category}</p>
-                <h3 className="book-title">{title}</h3>
-                <p className="book-author">{author}</p>
-                <div className="btns">
+                <div className="">
+                  <p className="book-category">{category}</p>
+                  <h3 className="book-title">{title}</h3>
+                  <p className="book-author">{author}</p>
+                </div>
+                <div className="btns me-4">
                   <button className="book-btn" type="button">
                     Comment
                   </button>
@@ -44,13 +49,15 @@ const BookList = () => {
                   </button>
                 </div>
               </div>
-              <div className="progress-container">
-                <div className="circular-progress-container">
-                  <div className="circular-progress"></div>
-                </div>
-                <div className="progress-stat">
-                  <p className="percent-complete">0%</p>
-                  <p className="completed">Completed</p>
+              <div className="d-flex flex-wrap progress-container">
+                <div>
+                  <div className="circular-progress-container">
+                    <div className="circular-progress"></div>
+                  </div>
+                  <div className="progress-stat">
+                    <p className="percent-complete">0%</p>
+                    <p className="completed">Completed</p>
+                  </div>
                 </div>
                 <div className="progress-divider"></div>
                 <div className="current-chapter-container">
@@ -65,10 +72,10 @@ const BookList = () => {
                   </div>
                 </div>
               </div>
-            </li>
+            </div>
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 };
