@@ -57,19 +57,6 @@ const AddBook = () => {
           <option value="fiction">Fiction</option>
           <option value="leadership">Leadership</option>
         </select>
-        {/* <select
-          className="form-select form-select-lg w-auto mb-3"
-          aria-label=".form-select-lg example"
-          value={category}
-          onChange={onCategoryChange}
-        >
-          <option selected value="action">
-            Action
-          </option>
-          <option value="it">It</option>
-          <option value="fiction">Fiction</option>
-          <option value="leadership">Leadership</option>
-        </select> */}
         <button type="submit" onClick={onSaveBookClick} className="submit-btn">
           Submit Book
         </button>
