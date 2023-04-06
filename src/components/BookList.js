@@ -31,7 +31,7 @@ const BookList = () => {
                   <h3 className="book-title">{title}</h3>
                   <p className="book-author">{author}</p>
                 </div>
-                <div className="btns me-4">
+                <div className="btns flex-wrap me-4">
                   <button className="book-btn" type="button">
                     Comment
                   </button>
