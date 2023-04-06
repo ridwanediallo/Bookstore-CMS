@@ -22,7 +22,7 @@ const BookList = () => {
 
           return (
             <div
-              className="d-flex flex-wrap justify-content-lg-between"
+              className="d-flex flex-wrap justify-content-lg-between border rounded mb-4 p-4"
               key={key}
             >
               <div className="left">
