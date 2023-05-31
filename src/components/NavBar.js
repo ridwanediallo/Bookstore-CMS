@@ -1,8 +1,7 @@
-
-import { Nav, Navbar, Container} from 'react-bootstrap';
+import { Nav, Navbar, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
-import {GoPerson} from 'react-icons/go'
+import { GoPerson } from 'react-icons/go';
 import './Navbar.css';
 
 const NavBar = () => (
@@ -38,6 +37,5 @@ const NavBar = () => (
     </div>
   </Navbar>
 );
-
 
 export default NavBar;
