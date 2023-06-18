@@ -7,8 +7,6 @@ body {
 form {
   display: flex;
   justify-content: space-between;
-
-  /* align-items: center; */
   gap: 40px;
   padding: 20px 0;
   margin: 20px 0;
@@ -31,8 +29,6 @@ form {
 .inputs {
   display: flex;
   justify-content: space-between;
-
-  /* flex-direction: row; */
   align-self: start;
   gap: 40px;
 }
@@ -73,10 +69,6 @@ form {
 
 .form-section {
   display: flex;
-
-  /* margin: 0 120px; */
-
-  /* max-width: 80%; */
   flex-direction: column;
 }
 
