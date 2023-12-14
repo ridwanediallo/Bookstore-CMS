@@ -53,17 +53,23 @@ export const deleteBook = createAsyncThunk(
 
 export const bookSlice = createSlice({
   name: 'books',
-  initialState: {},
+  initialState: {
+    book: {},
+    loading: false,
+  },
   extraReducers: {
     [getBooksData.pending]: (state, action) => {
+      state.loading = true;
       console.log('fetching');
     },
     [getBooksData.fulfilled]: (state, action) => {
+      state.loading = false;
       console.log('success');
-      return action.payload.book;
+      state.book = action.payload.book;
     },
     [addBooks.fulfilled]: (state, action) => {
-      state[action.payload.item_id] = [
+      state.loading = false;
+      state.book[action.payload.item_id] = [
         {
           title: action.payload.title,
           author: action.payload.author,
@@ -73,7 +79,7 @@ export const bookSlice = createSlice({
     },
     [deleteBook.fulfilled]: (state, action) => {
       console.log('success');
-      delete state[action.payload];
+      delete state.book[action.payload];
     },
   },
 });
