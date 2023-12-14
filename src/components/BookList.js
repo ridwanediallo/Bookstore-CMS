@@ -5,7 +5,8 @@ import './BookList.css';
 
 const BookList = () => {
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books);
+  const books = useSelector((state) => state.books.book);
+  const isLoading = useSelector((state) => state.books.loading);
   const booksKey = Object.keys(books);
 
   useEffect(() => {
@@ -15,10 +16,12 @@ const BookList = () => {
   return (
     <div className="container booklists">
       <div>
+        {isLoading && <p className='text-blue-600'>Loading...</p>}
         {booksKey.map((key) => {
           const book = books[key];
 
-          const { category, author, title } = book[0];
+          const { category, author, title } =
+            book && book.length > 0 ? book[0] : {};
 
           return (
             <div
